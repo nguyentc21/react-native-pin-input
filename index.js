@@ -163,7 +163,8 @@ export default class PinInput extends Component<void,P,S> {
                                     await this.onPinItemChanged(i, t);
                                 }}
                                 onKeyPress={(e) => this.onPinKeyPress(e, i)}
-                                value={this.props.markedPin || this.state.pins[i]}/>
+                                value={this.state.pins[i] ? this.props.markedPin : this.props.placeholder}
+                            />
                         )
                     })
                 }
