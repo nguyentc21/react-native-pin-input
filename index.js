@@ -152,7 +152,7 @@ export default class PinInput extends Component<void,P,S> {
                                     textAlign: 'center',
                                     ...this.props.pinItemStyle
                                 }}
-                                placeholder={this.props.placeholder || '_'}
+                                placeholder={this.props.placeholder}
                                 enablesReturnKeyAutomatically={true}
                                 keyboardType={(this.props.pinItemProps||{}).keyboardType || 'default'}
                                 returnKeyType={(this.props.pinItemProps || {}).returnKeyType || 'default'}
@@ -163,7 +163,7 @@ export default class PinInput extends Component<void,P,S> {
                                     await this.onPinItemChanged(i, t);
                                 }}
                                 onKeyPress={(e) => this.onPinKeyPress(e, i)}
-                                value={this.state.pins[i]}/>
+                                value={this.props.markedPin || this.state.pins[i]}/>
                         )
                     })
                 }
