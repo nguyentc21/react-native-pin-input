@@ -135,6 +135,7 @@ export default class PinInput extends Component<void,P,S> {
     render() {
         const {
             markedPin,
+            autoFocus,
             placeholder,
             pinItemProps,
             pinItemStyle
