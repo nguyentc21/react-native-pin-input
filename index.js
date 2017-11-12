@@ -133,6 +133,13 @@ export default class PinInput extends Component<void,P,S> {
 
 
     render() {
+        const {
+            placeholder,
+            markedPin,
+            placeholder,
+            pinItemProps,
+            pinItemStyle
+        }
         return (
             <View style={{flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
                 {
@@ -141,7 +148,7 @@ export default class PinInput extends Component<void,P,S> {
                             <TextInput
                                 key={"pin_" + i}
                                 ref={`pin_${i}`}
-                                autoFocus={this.props.autoFocus && i === 0}
+                                autoFocus={autoFocus && i === 0}
                                 style={{
                                     padding: 2,
                                     margin: 2,
@@ -150,20 +157,17 @@ export default class PinInput extends Component<void,P,S> {
                                     width: 30,
                                     height: 30,
                                     textAlign: 'center',
-                                    ...this.props.pinItemStyle
+                                    ...pinItemStyle
                                 }}
-                                placeholder={this.props.placeholder}
-                                enablesReturnKeyAutomatically={true}
-                                keyboardType={(this.props.pinItemProps||{}).keyboardType || 'default'}
-                                returnKeyType={(this.props.pinItemProps || {}).returnKeyType || 'default'}
-                                secureTextEntry={(v && (this.props.pinItemProps || {}).secureTextEntry ) || false}
+                                keyboardType='number-pad'
+                                secureTextEntry
                                 maxLength={1}
                                 onFocus={async (e) => await this.onPinFocus(i)}
                                 onChangeText={async (t) => {
                                     await this.onPinItemChanged(i, t);
                                 }}
                                 onKeyPress={(e) => this.onPinKeyPress(e, i)}
-                                value={this.state.pins[i] ? this.props.markedPin : this.props.placeholder}
+                                value={!!this.state.pins[i] ? markedPin : placeholder}
                             />
                         )
                     })
