@@ -134,9 +134,7 @@ export default class PinInput extends Component<void,P,S> {
 
     render() {
         const {
-            markedPin,
             autoFocus,
-            placeholder,
             pinItemProps,
             pinItemStyle
         } = this.props
@@ -167,7 +165,7 @@ export default class PinInput extends Component<void,P,S> {
                                     await this.onPinItemChanged(i, t);
                                 }}
                                 onKeyPress={(e) => this.onPinKeyPress(e, i)}
-                                value={!!this.state.pins[i] ? markedPin : placeholder}
+                                value={this.state.pins[i]}
                             />
                         )
                     })
