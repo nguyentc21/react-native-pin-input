@@ -139,7 +139,7 @@ export default class PinInput extends Component<void,P,S> {
             placeholder,
             pinItemProps,
             pinItemStyle
-        }
+        } = this.props
         return (
             <View style={{flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
                 {
