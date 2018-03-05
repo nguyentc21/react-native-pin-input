@@ -135,7 +135,6 @@ export default class PinInput extends Component<void,P,S> {
     render() {
         const {
             autoFocus,
-            pinItemProps,
             pinItemStyle
         } = this.props
         return (
@@ -157,8 +156,9 @@ export default class PinInput extends Component<void,P,S> {
                                     textAlign: 'center',
                                     ...pinItemStyle
                                 }}
-                                keyboardType='number-pad'
+                                keyboardType='numeric'
                                 secureTextEntry
+                                underlineColorAndroid='transparent'
                                 maxLength={1}
                                 onFocus={async (e) => await this.onPinFocus(i)}
                                 onChangeText={async (t) => {
